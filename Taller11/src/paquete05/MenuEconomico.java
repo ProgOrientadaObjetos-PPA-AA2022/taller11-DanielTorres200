@@ -4,46 +4,25 @@
  * and open the template in the editor.
  */
 package paquete05;
-
+import paquete02.Menu;
 /**
  *
  * @author spart
  */
-public class MenuEconomico {
-    protected String nombrePlato;
-    protected double valorMenu;
-    protected double valorInicial;
-    protected double valorPorcionGuarnicion;
-    protected double valorBebida;
-    protected double porcentajeAdicionalServicio;
+public class MenuEconomico extends Menu {
+    protected double porcentajeDescuento;
     
-    public void establecerNombrePlato(String x){
-        nombrePlato = x;
+    public void establecerPorcentajeDescuento(double p){
+        porcentajeDescuento = p;
     }
     
-    public void establecerValorMenu(double x){
-        valorMenu = x;
-    }
-    
-    public void establecerValorInicial(double n){
-        valorInicial = n;
-    }
-    
-    public double establecerValorPorcionGuarnicion(double v){
-        valorPorcionGuarnicion = v;
-    }
-    
-    public void establecerValorBebida(double b){
-        valorBebida = b;
-    }
-    
-    public double obtenerPorcentajeAdicionalServicio(double p){
-        porcentajeAdicionalServicio = p;
+    public void obtenerValorDescuento(double x){
+        return porcentajeDescuento;
     }
     
     @Override
     public String toString(){
-        String cadena = String.format("Menu a la Carta\n"
+        String cadena = String.format("Menu Economico\n"
                 + "Nombre Arrendatario: %s\n"
                 + "Cuota base: %.2f\n"
                 + "Valor sillas: %.2f\n"

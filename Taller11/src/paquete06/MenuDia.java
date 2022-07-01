@@ -4,57 +4,56 @@
  * and open the template in the editor.
  */
 package paquete06;
-
+import paquete02.Menu;
 /**
  *
  * @author spart
  */
-public class MenuDia {
-    protected String nombrePlato;
-    protected double valorMenu;
-    protected double valorInicial;
-    protected double valorPorcionGuarnicion;
-    protected double valorBebida;
-    protected double porcentajeAdicionalServicio;
-    
-    public void establecerNombrePlato(String x){
-        nombrePlato = x;
+public class MenuDia extends Menu {
+
+    private double valorPostre;
+    private double valorBebida;
+
+    public MenuDia(String nom, double valorI, double vp, double vb) {
+        super(nom, valorI);
+        valorPostre = vp;
+        valorBebida = vb;
     }
-    
-    public void establecerValorMenu(double x){
-        valorMenu = x;
+
+    public void establecerValorPostre(double c) {
+        valorPostre = c;
     }
-    
-    public void establecerValorInicial(double n){
-        valorInicial = n;
+
+    public void establecerValorBebida(double c) {
+        valorBebida = c;
     }
-    
-    public double establecerValorPorcionGuarnicion(double v){
-        valorPorcionGuarnicion = v;
+
+    @Override
+    public void calcularValorMenu() {
+        valorMenu = valorInicial + valorPostre + valorBebida;
     }
-    
-    public void establecerValorBebida(double b){
-        valorBebida = b;
+
+    public double obtenerValorPostre() {
+        return valorPostre;
     }
-    
-    public double obtenerPorcentajeAdicionalServicio(double p){
-        porcentajeAdicionalServicio = p;
+
+    public double obtenerValorBebida() {
+        return valorBebida;
     }
     
     @Override
-    public String toString(){
-        String cadena = String.format("Menu a la Carta\n"
-                + "Nombre Arrendatario: %s\n"
-                + "Cuota base: %.2f\n"
-                + "Valor sillas: %.2f\n"
-                + "Valor amplificacion: %.2f\n"
-                + "Arriendo Total: %.2f\n", 
-                obtenerNombreArrendatario(),
-                obtenerCuotaBase(),
-                obtenerValorSillas(),
-                obtenerValorAmplificacion(),
-                obtenerArriendoMensual());
-        
+    public String toString() {
+        String cadena = String.format("Menu del Dia"
+                + "Nombre Plato: %s\n"
+                + "Valor Inicial del Menu: %.2f\n"
+                + "Valor de la Porcion: %.2f\n"
+                + "Valor de la Bebida: %.2f"
+                + "Valor adicional: %.2f\n"
+                + "valor Total a Cancelar: %.2f\n",
+                obtenerNombrePlato(),
+                obtenertValorInicial(),
+                obtenerValorBebida(),
+                obtenertValorMenu());
         return cadena;
     }
 }

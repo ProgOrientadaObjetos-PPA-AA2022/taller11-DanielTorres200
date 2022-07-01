@@ -5,64 +5,69 @@
  */
 package paquete03;
 
+import paquete02.Menu;
+
 /**
  *
  * @author spart
  */
-public class MenuCarta {
-    protected String nombrePlato;
-    protected double valorMenu;
-    protected double valorInicial;
-    protected double valorPorcionGuarnicion;
-    protected double valorBebida;
-    protected double porcentajeAdicionalServicio;
-    
-    public void establecerNombrePlato(String x){
-        nombrePlato = x;
+public class MenuCarta extends Menu {
+
+    private double valorPorcion;
+    private double valorBebida;
+    private double valorAdicional;
+
+    public MenuCarta(String nom, double valorI, double vp, double vb, double va) {
+        super(nom, valorI);
+        valorPorcion = vp;
+        valorBebida = vb;
+        valorAdicional = va;
     }
-    
-    public void establecerValorMenu(double x){
-        valorMenu = x;
+
+    public void establecerValorPorcion(double c) {
+        valorPorcion = c;
     }
-    
-    public void establecerValorInicial(double n){
-        valorInicial = n;
+
+    public void establecerValorBebida(double c) {
+        valorBebida = c;
     }
-    
-    public double establecerValorPorcionGuarnicion(double v){
-        valorPorcionGuarnicion = v;
+
+    public void establecerValorAdicional() {
+        valorAdicional = ((valorInicial) * valorAdicional / 100);
     }
-    
-    public void establecerValorBebida(double b){
-        valorBebida = b;
-    }
-    
-    public double obtenerPorcentajeAdicionalServicio(double p){
-        porcentajeAdicionalServicio = p;
-    }
-    
+
     @Override
-    public String toString(){
-        String cadena = String.format("Menu a la Carta\n"
-                + "Nombre Arrendatario: %s\n"
-                + "Cuota base: %.2f\n"
-                + "Valor sillas: %.2f\n"
-                + "Valor amplificacion: %.2f\n"
-                + "Arriendo Total: %.2f\n", 
-                obtenerNombreArrendatario(),
-                obtenerCuotaBase(),
-                obtenerValorSillas(),
-                obtenerValorAmplificacion(),
-                obtenerArriendoMensual());
-        
+    public void calcularValorMenu() {
+        valorMenu = valorInicial + valorPorcion + valorBebida + ((valorInicial) * valorAdicional / 100);
+    }
+
+    public double obtenerValorPorcion() {
+        return valorPorcion;
+    }
+
+    public double obtenerValorBebida() {
+        return valorBebida;
+    }
+
+    public double obtenerValorAdicional() {
+        return valorAdicional;
+    }
+
+    @Override
+    public String toString() {
+        String cadena = String.format("Menu a la Carta"
+                + "Nombre Plato: %s\n"
+                + "Valor Inicial del Menu: %.2f\n"
+                + "Valor de la Porcion: %.2f\n"
+                + "Valor de la Bebida: %.2f"
+                + "Valor adicional: %.2f\n"
+                + "valor Total a Cancelar: %.2f\n",
+                obtenerNombrePlato(),
+                obtenertValorInicial(),
+                obtenerValorPorcion(),
+                obtenerValorBebida(),
+                obtenerValorAdicional(),
+                obtenertValorMenu());
         return cadena;
     }
 }
-
-/*Plato: Carta 001
-	Valor Inicial: 6.0
-	Valor guarnición: 1.5
-	Valor bebida: 2.0
-	Porcentaje Adicional: 10,00
-	Valor del Menú: 10,10
-/*

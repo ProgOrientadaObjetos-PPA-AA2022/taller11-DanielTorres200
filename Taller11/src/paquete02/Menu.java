@@ -9,35 +9,51 @@ package paquete02;
  *
  * @author spart
  */
-public class Menu {
+public abstract class Menu {
+
     protected String nombrePlato;
     protected double valorMenu;
     protected double valorInicial;
-    protected double valorPorcionGuarnicion;
-    protected double valorBebida;
-    protected double porcentajeAdicionalServicio;
-    
-    public void establecerNombrePlato(String x){
-        nombrePlato = x;
+
+    public Menu(String n, double vi) {
+        nombrePlato = n;
+        valorInicial = vi;
     }
-    
-    public void establecerValorMenu(double x){
-        valorMenu = x;
+
+    public void establecerNombrePlato(String c) {
+        nombrePlato = c;
     }
-    
-    public void establecerValorInicial(double n){
-        valorInicial = n;
+
+    public abstract void calcularValorMenu();
+
+    public void establecerValorInicial(double c) {
+        valorInicial = c;
     }
-    
-    public double establecerValorPorcionGuarnicion(double v){
-        valorPorcionGuarnicion = v;
+
+    public String obtenerNombrePlato() {
+        return nombrePlato;
     }
-    
-    public void establecerValorBebida(double b){
-        valorBebida = b;
+
+    public double obtenertValorInicial() {
+        return valorInicial;
     }
-    
-    public double obtenerPorcentajeAdicionalServicio(double p){
-        porcentajeAdicionalServicio = p;
+
+    public double obtenertValorMenu() {
+        return valorMenu;
+    }
+
+    @Override
+    public String toString() {
+        String cadena = String.format("Menu a la Carta\n"
+                + "Nombre Plato: %s\n"
+                + "Cuota base: %.2f\n"
+                + "Valor sillas: %.2f\n"
+                + "Valor amplificacion: %.2f\n"
+                + "Arriendo Total: %.2f\n",
+                obtenerNombrePlato(),
+                obtenertValorInicial(),
+                obtenertValorMenu());
+
+        return cadena;
     }
 }
