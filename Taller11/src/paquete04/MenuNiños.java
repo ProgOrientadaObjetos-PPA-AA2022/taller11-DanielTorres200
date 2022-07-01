@@ -12,50 +12,49 @@ import paquete02.Menu;
  */
 public class MenuNiños extends Menu {
 
-    private double valorPorcionHelado;
-    private double valorPorcionPastel;
+    private double valorHelado;
+    private double valorPastel;
 
-    public MenuNiños(String nom, double valorI, double vh, double vp) {
-        super(nom, valorI);
-        valorPorcionHelado = vh;
-        valorPorcionPastel = vp;
+    public MenuNiños(String n,double valorI,double vH, double vP) {
+        super(n, valorI);
+        valorHelado = vH;
+        valorPastel = vP;
     }
 
-    public void establecerValorPostre(double c) {
-        valorPostre = c;
+    public void establecerValorHelado(double c) {
+        valorHelado = c;
     }
 
-    public void establecerValorBebida(double c) {
-        valorBebida = c;
+    public void establecerValorPastel(double c) {
+        valorPastel = c;
     }
-
+    
     @Override
     public void calcularValorMenu() {
-        valorMenu = valorInicial + valorPostre + valorBebida;
+        valorMenu = valorInicial + valorHelado+ valorPastel;
     }
 
-    public double obtenerValorPostre() {
-        return valorPostre;
+    public double obtenerValorHelado() {
+        return valorHelado;
     }
 
-    public double obtenerValorBebida() {
-        return valorBebida;
+    public double obtenerValorPastel() {
+        return valorPastel;
     }
-
+    
     @Override
     public String toString() {
-        String cadena = String.format("Menu Niños\n"
-                + "Nombre Arrendatario: %s\n"
-                + "Cuota base: %.2f\n"
-                + "Valor sillas: %.2f\n"
-                + "Valor amplificacion: %.2f\n"
-                + "Arriendo Total: %.2f\n",
-                obtenerNombreArrendatario(),
-                obtenerCuotaBase(),
-                obtenerValorSillas(),
-                obtenerValorAmplificacion(),
-                obtenerArriendoMensual());
-
+        String cadena = String.format("Menu Niños"
+                + "Nombre Plato: %s\n"
+                + "Valor Inicial del Menu: %.2f\n"
+                + "Valor del Helado: %.2f\n"
+                + "Valor del Pastel: %.2f"
+                + "valor total a Cancelar: %.2f\n", 
+                obtenerNombrePlato(),
+                obtenertValorInicial(),
+                obtenerValorHelado(),
+                obtenerValorPastel(),
+                obtenertValorMenu());
         return cadena;
     }
 }

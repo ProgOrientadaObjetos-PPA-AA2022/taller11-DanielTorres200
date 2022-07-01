@@ -4,81 +4,76 @@
  * and open the template in the editor.
  */
 package paquete02;
-
 import java.util.ArrayList;
-
 /**
  *
  * @author spart
  */
 public class Cuenta {
+    
     private String nombreCliente;
-    private ArrayList<Menu> menus = new ArrayList<>();
+    private int iva;
+    private ArrayList<Menu> listaMenu;
     private double valorCancelar;
     private double subtotal;
-    private double iva;
 
-    public Cuenta(String n, ArrayList<Menu> menus) {
+    public Cuenta(String n, int i, ArrayList<Menu> listaM) {
         nombreCliente = n;
-        menus = lista;
+        iva = i;
+        listaMenu = listaM;
     }
 
-    public void establecerNombreCliente(String n) {
-        nombreCliente = n;
+    public void establecerNombreCliente(String c) {
+        this.nombreCliente = c;
     }
 
-    public void establecerMenus(ArrayList<Menu> lista) {
-        Menu = lista;
+    public void establecerIva(int c) {
+        this.iva = c;
     }
 
-    public void establecerTotalArriendosFinalMensual() {
-        for (int i = 0; i < obtenerArriendos().size(); i++) {
-            totalArriendosFinalMensual = totalArriendosFinalMensual
-                    + obtenerArriendos().get(i).obtenerArriendoMensual();
+    public void establecerListaMenu(ArrayList<Menu> c) {
+        this.listaMenu = c;
+    }
+
+    public void establecerSubtotal() {
+        for (int i = 0; i < listaMenu.size(); i++) {
+            subtotal += listaMenu.get(i).valorMenu;
         }
     }
-
-    public void establecerTotalArriendosBaseMensual() {
-        for (int i = 0; i < obtenerArriendos().size(); i++) {
-            totalArriendosBaseMensual = totalArriendosBaseMensual
-                    + obtenerArriendos().get(i).obtenerCuotaBase();
-        }
+    public void establecerValorCancelar() {
+        valorCancelar = subtotal + (subtotal*(iva/100));
     }
 
-    public String obtenerNombre() {
-        return nombre;
+    public String obtenerNombreCliente() {
+        return nombreCliente;
     }
 
-    public ArrayList<Arriendo> obtenerArriendos() {
-        return arriendos;
+    public int obtenerIva() {
+        return iva;
     }
 
-    public double obtenerTotalArriendosFinalMensual() {
-        return totalArriendosFinalMensual;
+    public ArrayList<Menu> obtenerListaMenu() {
+        return listaMenu;
     }
-
-    public double obtenerTotalArriendosBaseMensual() {
-        return totalArriendosBaseMensual;
+    public double obtenerSubtotal() {
+        return subtotal;
     }
-
+    public double obtenerValorCancelar() {
+        return valorCancelar;
+    }
+    
     @Override
     public String toString() {
-        String cadena = String.format("Datos Centro Comercial\n"
-                + "Nombre: %s\n"
-                + "Lista de Locales\n\n", obtenerNombre());
-
-        for (int i = 0; i < obtenerArriendos().size(); i++) {
-            cadena = String.format("%s"
-                    + "%s\n",
-                    cadena,
-                    obtenerArriendos().get(i));
-        }
-
-        cadena = String.format("\n%sTotal Arriendos base Mensual: %.2f\n"
-                + "Total Arriendos Mensual: %.2f\n",
-                cadena,
-                obtenerTotalArriendosBaseMensual(),
-                obtenerTotalArriendosFinalMensual());
+        String cadena = String.format("Nombre del cliente: %s\n"
+                + "Iva: %.2f\n"
+                + "Lista Menu: %.2f\n"
+                + "Subtotal: %.2f"
+                + "valor a Cancelar: %.2f\n", 
+                obtenerNombreCliente(),
+                obtenerIva(),
+                obtenerListaMenu(),
+                obtenerSubtotal(),
+                obtenerValorCancelar());
         return cadena;
     }
 }

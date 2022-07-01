@@ -12,20 +12,19 @@ import paquete02.Menu;
  * @author spart
  */
 public class MenuCarta extends Menu {
-
-    private double valorPorcion;
+    private double valorPorcionGuarnicio;
     private double valorBebida;
     private double valorAdicional;
 
     public MenuCarta(String nom, double valorI, double vp, double vb, double va) {
         super(nom, valorI);
-        valorPorcion = vp;
+        valorPorcionGuarnicio = vp;
         valorBebida = vb;
         valorAdicional = va;
     }
 
     public void establecerValorPorcion(double c) {
-        valorPorcion = c;
+        valorPorcionGuarnicio = c;
     }
 
     public void establecerValorBebida(double c) {
@@ -38,11 +37,11 @@ public class MenuCarta extends Menu {
 
     @Override
     public void calcularValorMenu() {
-        valorMenu = valorInicial + valorPorcion + valorBebida + ((valorInicial) * valorAdicional / 100);
+        valorMenu = valorInicial + valorPorcionGuarnicio + valorBebida + ((valorInicial) * valorAdicional / 100);
     }
 
     public double obtenerValorPorcion() {
-        return valorPorcion;
+        return valorPorcionGuarnicio;
     }
 
     public double obtenerValorBebida() {
@@ -55,13 +54,13 @@ public class MenuCarta extends Menu {
 
     @Override
     public String toString() {
-        String cadena = String.format("Menu a la Carta"
+        String cadena = String.format("Menu Carta"
                 + "Nombre Plato: %s\n"
-                + "Valor Inicial del Menu: %.2f\n"
-                + "Valor de la Porcion: %.2f\n"
-                + "Valor de la Bebida: %.2f"
+                + "Valor inicial del Menu: %.2f\n"
+                + "Valor Porcion: %.2f\n"
+                + "Valor Bebida: %.2f"
                 + "Valor adicional: %.2f\n"
-                + "valor Total a Cancelar: %.2f\n",
+                + "valor total a Cancelar: %.2f\n",
                 obtenerNombrePlato(),
                 obtenertValorInicial(),
                 obtenerValorPorcion(),
