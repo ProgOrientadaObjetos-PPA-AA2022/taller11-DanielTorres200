@@ -15,10 +15,10 @@ public class MenuNiños extends Menu {
     private double valorHelado;
     private double valorPastel;
 
-    public MenuNiños(String n,double valorI,double vH, double vP) {
+    public MenuNiños(String n,double valorI,double valorH, double valorP) {
         super(n, valorI);
-        valorHelado = vH;
-        valorPastel = vP;
+        valorHelado = valorH;
+        valorPastel = valorP;
     }
 
     public void establecerValorHelado(double c) {
@@ -44,12 +44,12 @@ public class MenuNiños extends Menu {
     
     @Override
     public String toString() {
-        String cadena = String.format("Menu Niños"
-                + "Nombre Plato: %s\n"
-                + "Valor Inicial del Menu: %.2f\n"
-                + "Valor del Helado: %.2f\n"
-                + "Valor del Pastel: %.2f"
-                + "valor total a Cancelar: %.2f\n", 
+        String cadena = String.format("Menu Niños\n"
+                + "\tPlato: %s\n"
+                + "\tValor Inicial del Menu: %.2f\n"
+                + "\tValor Helado: %.2f\n"
+                + "\tValor Pastel: %.2f\n"
+                + "\tvalor del Menu: %.2f", 
                 obtenerNombrePlato(),
                 obtenertValorInicial(),
                 obtenerValorHelado(),

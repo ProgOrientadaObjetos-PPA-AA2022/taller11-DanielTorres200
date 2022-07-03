@@ -16,19 +16,19 @@ public class MenuCarta extends Menu {
     private double valorBebida;
     private double valorAdicional;
 
-    public MenuCarta(String nom, double valorI, double vp, double vb, double va) {
+    public MenuCarta(String nom, double valorI, double vPG, double vB, double vA) {
         super(nom, valorI);
-        valorPorcionGuarnicio = vp;
-        valorBebida = vb;
-        valorAdicional = va;
+        valorPorcionGuarnicio = vPG;
+        valorBebida = vB;
+        valorAdicional = vA;
     }
 
     public void establecerValorPorcion(double c) {
         valorPorcionGuarnicio = c;
     }
 
-    public void establecerValorBebida(double c) {
-        valorBebida = c;
+    public void establecerValorBebida(double b) {
+        valorBebida = b;
     }
 
     public void establecerValorAdicional() {
@@ -54,13 +54,13 @@ public class MenuCarta extends Menu {
 
     @Override
     public String toString() {
-        String cadena = String.format("Menu Carta"
-                + "Nombre Plato: %s\n"
-                + "Valor inicial del Menu: %.2f\n"
-                + "Valor Porcion: %.2f\n"
-                + "Valor Bebida: %.2f"
-                + "Valor adicional: %.2f\n"
-                + "valor total a Cancelar: %.2f\n",
+        String cadena = String.format("Menu a la Carta\n"
+                + "\tPlato: %s\n"
+                + "\tValor inicial del Menu: %.1f\n"
+                + "\tValor Guarnicion: %.1f\n"
+                + "\tValor Bebida: %.1f\n"
+                + "\tPorcentaje Adicional: %.2f\n"
+                + "\tvalor del Menu: %.2f\n",
                 obtenerNombrePlato(),
                 obtenertValorInicial(),
                 obtenerValorPorcion(),
