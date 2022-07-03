@@ -14,8 +14,8 @@ public class MenuDia extends Menu {
     private double valorPostre;
     private double valorBebida;
 
-    public MenuDia(String nom, double valorI, double vP, double vB) {
-        super(nom, valorI);
+    public MenuDia(String n, double valorI, double vP, double vB) {
+        super(n, valorI);
         valorPostre = vP;
         valorBebida = vB;
     }

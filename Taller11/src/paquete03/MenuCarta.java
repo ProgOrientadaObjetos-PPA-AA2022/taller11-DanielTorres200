@@ -16,8 +16,8 @@ public class MenuCarta extends Menu {
     private double valorBebida;
     private double valorAdicional;
 
-    public MenuCarta(String nom, double valorI, double vPG, double vB, double vA) {
-        super(nom, valorI);
+    public MenuCarta(String n, double valorI, double vPG, double vB, double vA) {
+        super(n, valorI);
         valorPorcionGuarnicio = vPG;
         valorBebida = vB;
         valorAdicional = vA;

@@ -24,15 +24,15 @@ public class Cuenta {
     }
 
     public void establecerNombreCliente(String c) {
-        this.nombreCliente = c;
+        nombreCliente = c;
     }
 
     public void establecerIva(int c) {
-        this.iva = c;
+        iva = c;
     }
 
     public void establecerListaMenu(ArrayList<Menu> c) {
-        this.listaMenu = c;
+        listaMenu = c;
     }
 
     public void establecerSubtotal() {

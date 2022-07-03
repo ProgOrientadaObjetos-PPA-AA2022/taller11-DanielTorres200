@@ -20,10 +20,12 @@ public class MenuEconomico extends Menu {
     public void establecerDescuento(double d) {
         descuento = d;
     }
+    
     @Override
     public void calcularValorMenu() {
         valorMenu = valorInicial - (valorInicial*(descuento/100));
     }
+    
     public double obtenerDescuento() {
         return descuento;
     }
